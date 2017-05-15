@@ -1,3 +1,10 @@
+/**
+ * Compilation: javac StringExercises.java
+ * Execution: java StringExercises
+ *
+ * Basic String operations.
+ */
+
 public class StringExercises {
     public static void main(String[] args) {
         String pre = "We don't need no ";
