@@ -15,14 +15,14 @@ public class Circle {
     }
 
     public static void main(String[] args) {
-        System.out.println("Hellow Circle!");
+
     }
 
     public double getArea() {
         // A = pi*r^2
         double radius = this.radius;
         double pi = Math.PI;
-        double area = pi * Math.sqrt(radius);
+        double area = pi * Math.pow(radius, 2);
         return area;
     }
 
