@@ -5,9 +5,6 @@
  * Java II - Section 6.1
  * Create a input validation class.
  */
-
-package packageExample;
-
 import java.util.Scanner;
 
 public class Input implements InputInterface  {
@@ -19,6 +16,7 @@ public class Input implements InputInterface  {
     }
 
     public String getString() {
+        System.out.println("Enter String: ");
         return scanner.next();
     }
 
@@ -44,7 +42,7 @@ public class Input implements InputInterface  {
     public double getDouble(double min, double max) {
         double userInput;
         do {
-            System.out.printf("Enter a double between %f.2 and %f.2", min, max);
+            System.out.printf("Enter a double between %.2f and %.2f\n", min, max);
             userInput = scanner.nextDouble();
         } while((userInput <= min) || (userInput >= max));
         return userInput;

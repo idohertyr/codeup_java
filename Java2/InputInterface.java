@@ -3,9 +3,6 @@
  *
  * Interface used for Input
  */
-
-package packageExample;
-
 public interface InputInterface {
     String getString();
     boolean yesNo();
