@@ -6,7 +6,7 @@
  * Create a input validation class.
  */
 
-package java2;
+package packageExample;
 
 import java.util.Scanner;
 
@@ -54,4 +54,3 @@ public class Input implements InputInterface  {
         return 25.3;
     }
 }
-
