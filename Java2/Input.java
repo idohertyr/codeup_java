@@ -34,7 +34,7 @@ public class Input implements InputInterface  {
         int userInput;
         do {
             userInput = scanner.nextInt();
-        } while((userInput <= min) || (userInput >= max));
+        } while((userInput < min) || (userInput > max));
         return userInput;
     }
 
