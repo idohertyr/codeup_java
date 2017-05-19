@@ -1,19 +1,26 @@
-public class Quandralateral extends Shape implements Measureable {
+/**
+ * Compiliation: javac Quadralateral.java
+ * Execution: java Quadralateral
+ *
+ * A sub class that holds the variables and functions to define an abstract class.
+ */
+
+abstract class Quadralateral extends Shape implements Measureable {
 
     protected double length;
     protected double width;
 
-    public Quandralateral(double length, double width) {
+    public Quadralateral(double length, double width) {
         this.length = length;
         this.width = width;
     }
 
     /* Getter setter methods */
-    public void getLength() {
+    public double getLength() {
         return this.length;
     }
 
-    public void getWidth() {
+    public double getWidth() {
         return this.width;
     }
 
