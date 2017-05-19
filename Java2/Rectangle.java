@@ -1,20 +1,21 @@
+/**
+ * Compiliation: javac Rectangle.java
+ * Execution: java Rectangle
+ *
+ * An example of an abract class to extend.
+ */
 public class Rectangle {
 
-    private double length;
-    private double width;
+    protected double length;
+    protected double width;
 
-    private double area;
-    private double perimeter;
-
-    public Rectangle(double width, double length) {
+    public Rectangle(double length, double width) {
         this.length = length;
         this.width = width;
-        this.area = getArea();
-        this.perimeter = getPerimeter();
     }
 
     public static void main(String[] args) {
-        System.out.println("Hello Rectanlge");
+        /* main function */
     }
 
     public double getArea() {
@@ -25,16 +26,7 @@ public class Rectangle {
         return (2 * this.width) + (2 * this.length);
     }
 
-    public void printRectangle() {
-        System.out.printf("Rectangle:" +
-                "\n Length: %.2f" +
-                "\n Width: %.2f" +
-                "\n Area: %.2f" +
-                "\n Perimeter: %.2f" +
-                "\n",
-                this.length,
-                this.width,
-                this.area,
-                this.perimeter);
+    public String printRectangle() {
+        return String.format("%.2f x %.2f Rectangle", this.length, this.width);
     }
 }
