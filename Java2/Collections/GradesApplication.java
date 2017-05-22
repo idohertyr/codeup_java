@@ -6,6 +6,8 @@
  */
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
 import java.lang.Math;
 
 public class GradesApplication {
@@ -223,17 +225,63 @@ public class GradesApplication {
     }
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         /* Create a hashmap names students */
         /* Key: String username, Value: Student Object */
         GradesApplication app = new GradesApplication();
-        System.out.println(app.createUsername());
+
+        /* Create students hashmap */
+        HashMap<String, Student> students = new HashMap<String, Student>();
+
+        /* Create a single student */
+        String student_username = app.createUsername();
+        String[] student_name = student_username.split("_");
+        Student student1 = new Student(student_name[1]);
+        student1.addGrade(34);
+        student1.addGrade(64);
+        student1.addGrade(84);
+        students.put(student_username, student1);
+
+        student_username = app.createUsername();
+        student_name = student_username.split("_");
+        Student student2 = new Student(student_name[1]);
+        student2.addGrade(32);
+        student2.addGrade(64);
+        student2.addGrade(89);
+        students.put(student_username, student2);
+
+        student_username = app.createUsername();
+        student_name = student_username.split("_");
+        Student student3 = new Student(student_name[1]);
+        student3.addGrade(94);
+        student3.addGrade(54);
+        student3.addGrade(54);
+        students.put(student_username, student3);
+
+        student_username = app.createUsername();
+        student_name = student_username.split("_");
+        Student student4 = new Student(student_name[1]);
+        student4.addGrade(54);
+        student4.addGrade(84);
+        student4.addGrade(84);
+        students.put(student_username, student4);
+
+        /* Interface */
+
+        System.out.println("Welcome! Please select one of our students:");
+        students.forEach((key, value)->{
+            System.out.println(key);
+        });
+        String userSelection = scanner.next();
+        Student selectedStudent = students.get(userSelection);
+        selectedStudent.printStudent();
     }
 
     public String createUsername() {
         /* Adjectives */
-        int rand1 = (int)((Math.random() * 150) + 1);
+        int rand1 = (int)((Math.random() * 100) + 1);
         /* FirstNames */
-        int rand2 = (int)((Math.random() * 50) + 1);
+        int rand2 = (int)((Math.random() * 25) + 1);
         /* Username String */
         return String.format("%s_%s", this.adjectives[rand1], this.firstnames[rand2]);
     }
