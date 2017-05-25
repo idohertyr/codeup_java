@@ -18,8 +18,8 @@ public class Input implements InputInterface  {
 
     public static void main(String[] args) {
         Input input = new Input();
-        System.out.println("Enter an interger: ");
-        input.getInt();
+        System.out.println("Enter an interger between 20 and 30: ");
+        input.getInt(20, 30);
     }
 
     public String getString() {
@@ -33,11 +33,20 @@ public class Input implements InputInterface  {
     }
 
     public int getInt(int min, int max) {
-        int userInput;
-        do {
-            userInput = scanner.nextInt();
-        } while((userInput < min) || (userInput > max));
-        return userInput;
+        int num = 0;
+        try {
+            num = Integer.valueOf(this.getString());
+        } catch (NumberFormatException e) {
+            System.out.println("Please enter *an integer* between " + min + " and " + max + ": ");
+            return getInt(min, max);
+        }
+
+        if (num >= min && num <= max) {
+            return num;
+        }
+
+        System.out.println(num + " number out of range, try again");
+        return getInt(min, max);
     }
 
     public int getInt() {
