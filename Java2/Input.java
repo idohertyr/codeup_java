@@ -17,21 +17,9 @@ public class Input implements InputInterface  {
     }
 
     public static void main(String[] args) {
-        Input userInput = new Input();
-        System.out.println("Enter Something");
-        try {
-            String userText = userInput.getInt();
-            Integer.valueOf(userText);
-        } catch (NumberFormatException e) { // catch all
-            System.out.println("*Exception*" + e.getMessage());
-        }
-        System.out.println("Enter Something");
-        try {
-            String userText = userInput.getDouble();
-            Double.valueOf(userText);
-        } catch (NumberFormatException e) { // catch all
-            System.out.println("*Exception*" + e.getMessage());
-        }
+        Input input = new Input();
+        System.out.println("Enter an interger: ");
+        input.getInt();
     }
 
     public String getString() {
@@ -52,9 +40,13 @@ public class Input implements InputInterface  {
         return userInput;
     }
 
-    public String getInt() {
-        String userInput = scanner.next();
-        return userInput;
+    public int getInt() {
+        try {
+            return Integer.valueOf(this.getString());
+        } catch (NumberFormatException e) {
+            System.out.println("Please enter an *integer*: ");
+            return getInt();
+        }
     }
 
     public double getDouble(double min, double max) {
@@ -66,8 +58,12 @@ public class Input implements InputInterface  {
         return userInput;
     }
 
-    public String getDouble() {
-        String userInput = scanner.next();
-        return userInput;
+    public double getDouble() {
+        try {
+            return Integer.valueOf(this.getString());
+        } catch (NumberFormatException e) {
+            System.out.println("Please enter an *integer*: ");
+            return getDouble();
+        }
     }
 }
